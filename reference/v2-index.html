@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<!--
+  HOW TO CHANGE THE SHOP NAME
+  The café name is defined in ONE place: the data-shop-name attribute on the <html> tag below.
+  Replace "[Your Café Name]" with the real name and every heading, the nav logo, the footer
+  and the browser tab title update automatically (via assets/js/main.js).
+
+  Other placeholders to replace are marked with the class "placeholder" (dashed outline)
+  and the text "Placeholder". Menu prices are sample prices — adjust before going live.
+  Facts in the Origin section are sourced in SOURCES.md.
+-->
+<html lang="en" data-shop-name="[Your Café Name]">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee shop in Chiang Rai</title>
+<meta name="description" content="A coffee shop in Chiang Rai, Thailand, serving coffee grown in the hills of northern Thailand.">
+<link rel="canonical" href="https://janvanhal.github.io/chiangrai-coffee-v2/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="[Your Café Name]">
+<meta property="og:title" content="Coffee shop in Chiang Rai">
+<meta property="og:description" content="A coffee shop in Chiang Rai, Thailand, serving coffee grown in the hills of northern Thailand.">
+<meta property="og:url" content="https://janvanhal.github.io/chiangrai-coffee-v2/">
+<meta property="og:image" content="https://janvanhal.github.io/chiangrai-coffee-v2/assets/img/hero-hills.webp">
+<meta property="og:image:alt" content="Forested hills of northern Thailand layered in morning mist at golden hour">
+<meta property="og:locale" content="en">
+<meta name="theme-color" content="#120B08">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,500;1,9..144,500&amp;family=Geist+Mono:wght@400;500&amp;family=Manrope:wght@400;500;600&amp;family=Noto+Sans+Thai:wght@400;500&amp;display=swap" rel="stylesheet">
+<link rel="preload" as="image" href="assets/img/hero-hills.webp" fetchpriority="high">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%23120B08'/%3E%3Ccircle cx='16' cy='17' r='5' fill='%23D9A066'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/css/style.css">
+<script>
+  if (!window.matchMedia("(prefers-reduced-motion: reduce)").matches && "IntersectionObserver" in window) {
+    document.documentElement.classList.add("js");
+  }
+</script>
+<script src="assets/js/main.js" defer></script>
+</head>
+<body>
+
+<a class="skip-link" href="#main">Skip to content</a>
+
+<header class="site-header">
+  <nav class="nav" aria-label="Main">
+    <div class="nav-bar">
+      <a href="#top" class="logo" data-shop-name>[Your Café Name]</a>
+      <ul class="nav-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#origin">Origin</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+      <div class="nav-tools">
+        <a class="btn btn-solid nav-cta" href="#visit">Visit us</a>
+        <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="nav-panel" aria-label="Open menu">
+          <span class="nav-toggle-icon" aria-hidden="true"></span>
+        </button>
+      </div>
+    </div>
+    <div class="nav-panel" id="nav-panel" hidden>
+      <ul class="nav-panel-links">
+        <li><a href="#about">About</a></li>
+        <li><a href="#menu">Menu</a></li>
+        <li><a href="#origin">Origin</a></li>
+        <li><a href="#visit">Visit</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
+
+<main id="main" tabindex="-1">
+  <section class="hero" id="top" aria-labelledby="hero-heading">
+    <div class="hero-copy">
+      <p class="eyebrow">Coffee house · Chiang Rai, Thailand</p>
+      <h1 id="hero-heading">
+        <span class="hero-name" data-shop-name>[Your Café Name]</span>
+        <span class="hero-annot">&mdash; coffee from the hills of Chiang Rai</span>
+      </h1>
+      <p class="lead">Espresso, Thai-style iced coffee and slow mornings, made with arabica grown in the mountains of northern Thailand.</p>
+      <div class="hero-actions">
+        <a class="btn btn-solid" href="#menu">See the menu</a>
+        <a class="btn btn-ghost" href="#origin">Where our coffee grows</a>
+      </div>
+    </div>
+    <a class="scroll-cue" href="#about">
+      <span class="scroll-cue-label">Scroll</span>
+      <span class="scroll-cue-line" aria-hidden="true"></span>
+    </a>
+    <div class="hero-media">
+      <img class="hero-img" src="assets/img/hero-hills.webp" width="1280" height="720" alt="Forested hills of northern Thailand layered in morning mist at golden hour" loading="eager" fetchpriority="high" decoding="async">
+    </div>
+  </section>
+
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee-track">
+      <ul class="marquee-group">
+        <li>Es-yen (Thai-style iced espresso)</li>
+        <li>Americano</li>
+        <li>Latte</li>
+        <li>Cappuccino</li>
+        <li>Mocha</li>
+        <li>Espresso</li>
+        <li>Thai iced coffee (kafae boran)</li>
+        <li>Oliang (Thai black iced coffee)</li>
+        <li>Caramel macchiato</li>
+        <li>Flat white</li>
+      </ul>
+      <ul class="marquee-group">
+        <li>Es-yen (Thai-style iced espresso)</li>
+        <li>Americano</li>
+        <li>Latte</li>
+        <li>Cappuccino</li>
+        <li>Mocha</li>
+        <li>Espresso</li>
+        <li>Thai iced coffee (kafae boran)</li>
+        <li>Oliang (Thai black iced coffee)</li>
+        <li>Caramel macchiato</li>
+        <li>Flat white</li>
+      </ul>
+    </div>
+  </div>
+
+  <section class="about band-cream" id="about" aria-labelledby="about-heading">
+    <div class="wrap">
+      <div class="about-grid">
+        <div class="about-copy reveal" data-reveal="up">
+          <p class="eyebrow">About</p>
+          <h2 id="about-heading" class="section-title">About <span data-shop-name>[Your Café Name]</span></h2>
+          <div class="placeholder">
+            <p><span class="tag">Placeholder</span></p>
+            <p>Write two or three sentences about the café here: who runs it, when it opened, and what makes it yours.</p>
+            <p>Add a note about where the beans come from (which farm or roaster) once that is confirmed.</p>
+          </div>
+        </div>
+        <figure class="frame reveal" data-reveal="zoom">
+          <img src="assets/img/cafe.webp" width="960" height="720" loading="lazy" decoding="async" alt="A quiet café counter with wooden surfaces and coffee equipment in natural window light">
+        </figure>
+      </div>
+
+      <div class="figures">
+        <h2 id="highlights-heading" class="visually-hidden">Highlights</h2>
+        <figure class="figure reveal" data-reveal="up">
+          <p class="figure-value">Arabica</p>
+          <figcaption>grown in Chiang Rai's highlands</figcaption>
+        </figure>
+        <figure class="figure reveal" data-reveal="up" style="--d: 90ms">
+          <p class="figure-value">800 &ndash; 1,700 m</p>
+          <figcaption>growing altitudes of Doi Tung and Doi Chaang</figcaption>
+        </figure>
+        <figure class="figure reveal" data-reveal="up" style="--d: 180ms">
+          <p class="figure-value">Hot &amp; iced</p>
+          <figcaption>Italian classics and Thai favourites</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  <section class="menu band-dark" id="menu" aria-labelledby="menu-heading">
+    <div class="wrap">
+      <div class="section-head reveal" data-reveal="up">
+        <p class="eyebrow">Menu</p>
+        <h2 id="menu-heading" class="section-title">Coffee</h2>
+        <p class="lead">Ten of the drinks people order most in Thai cafés, from the classic Italian menu to Thai favourites.</p>
+      </div>
+
+      <p class="legend reveal" data-reveal="fade">Prices in Thai baht (THB), hot / iced.</p>
+
+      <ul class="menu-grid">
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Es-yen (Thai-style iced espresso)</h3>
+            <p class="th" lang="th">เอสเย็น</p>
+            <p class="menu-desc">Thailand's favourite café drink. Strong espresso with sweetened condensed milk, evaporated milk and fresh milk, served over ice.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n"><span aria-hidden="true">&ndash;</span><span class="visually-hidden">not served</span></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">60 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Americano</h3>
+            <p class="th" lang="th">อเมริกาโน่</p>
+            <p class="menu-desc">Espresso topped up with water. Iced americano is the go-to black coffee in Thai cafés.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">45 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">55 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Latte</h3>
+            <p class="th" lang="th">ลาเต้</p>
+            <p class="menu-desc">Espresso with plenty of steamed milk, or with cold milk over ice. Smooth and mild.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">55 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">65 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Cappuccino</h3>
+            <p class="th" lang="th">คาปูชิโน่</p>
+            <p class="menu-desc">Espresso with steamed milk and a thick layer of foam.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">55 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">65 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Mocha</h3>
+            <p class="th" lang="th">มอคค่า</p>
+            <p class="menu-desc">Espresso, chocolate and milk.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">60 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">70 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Espresso</h3>
+            <p class="th" lang="th">เอสเพรสโซ่</p>
+            <p class="menu-desc">A double shot of espresso, pulled from Chiang Rai arabica.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">45 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n"><span aria-hidden="true">&ndash;</span><span class="visually-hidden">not served</span></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Thai iced coffee (kafae boran)</h3>
+            <p class="th" lang="th">กาแฟโบราณ</p>
+            <p class="menu-desc">Old-style Thai coffee, brewed strong through a cloth filter and sweetened with condensed and evaporated milk.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">40 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">45 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Oliang (Thai black iced coffee)</h3>
+            <p class="th" lang="th">โอเลี้ยง</p>
+            <p class="menu-desc">Traditional dark-roasted Thai black coffee over ice, with toasty, smoky notes. Lightly sweetened unless you ask for it without.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n"><span aria-hidden="true">&ndash;</span><span class="visually-hidden">not served</span></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">35 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Caramel macchiato</h3>
+            <p class="th" lang="th">คาราเมลมัคคิอาโต</p>
+            <p class="menu-desc">Milk marked with espresso and finished with caramel sauce.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">65 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n">75 <small>THB</small></span></span>
+            </p>
+          </article>
+        </li>
+        <li class="reveal" data-reveal="up">
+          <article class="menu-card">
+            <h3>Flat white</h3>
+            <p class="th" lang="th">แฟลตไวท์</p>
+            <p class="menu-desc">A double espresso with a small amount of velvety steamed milk. Stronger than a latte.</p>
+            <p class="prices">
+              <span class="price"><span class="price-k">Hot</span><span class="price-n">60 <small>THB</small></span></span>
+              <span class="price"><span class="price-k">Iced</span><span class="price-n"><span aria-hidden="true">&ndash;</span><span class="visually-hidden">not served</span></span></span>
+            </p>
+          </article>
+        </li>
+      </ul>
+
+      <p class="note reveal" data-reveal="fade"><span class="tag">Sample</span>These are sample prices based on typical Chiang Rai and Thai café prices. Adjust them before publishing. Ask for <span class="thai" lang="th">หวานน้อย</span> (waan noi, less sweet) or <span class="thai" lang="th">ไม่หวาน</span> (mai waan, not sweet).</p>
+    </div>
+  </section>
+
+  <section class="origin" id="origin" aria-labelledby="origin-heading">
+    <div class="origin-light band-cream">
+      <div class="wrap">
+        <div class="origin-intro reveal" data-reveal="up">
+          <p class="eyebrow">Origin</p>
+          <h2 id="origin-heading" class="section-title">Grown in the mountains of Chiang Rai</h2>
+          <p class="lead">Coffee came to these hills as a replacement crop for opium. Today Chiang Rai is known for highland arabica, much of it grown by Akha, Lahu, Lisu and other hill communities.</p>
+        </div>
+
+        <article class="region">
+          <figure class="frame reveal" data-reveal="zoom">
+            <img src="assets/img/plantation.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Shade-grown arabica coffee shrubs with ripe red cherries on a hillside under tall trees">
+          </figure>
+          <div class="region-copy reveal" data-reveal="up" style="--d: 80ms">
+            <h3 class="region-name">Doi Chaang</h3>
+            <p class="meta">Wawee subdistrict, Mae Suai district · 1,100&ndash;1,700 m</p>
+            <ul>
+              <li>Arabica, mainly the Caturra, Catimor and Catuai varieties, grown on the slopes of Doi Chaang mountain.</li>
+              <li>In 1969 hill-tribe farmers here were encouraged to grow winter crops instead of opium under King Bhumibol's (Rama IX) initiative. Arabica was one of those crops.</li>
+              <li>Grown by Akha, Lisu and Chinese families in the village, under the shade of fruit and nut trees such as plum, peach, pear and macadamia.</li>
+              <li>&ldquo;Kafae Doi Chaang&rdquo; is registered as a Protected Geographical Indication (PGI) in the EU (2015).</li>
+            </ul>
+            <p class="src">Sources: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ%3AC%3A2014%3A049%3A0008%3A0012%3AEN%3APDF" target="_blank" rel="noopener noreferrer">EU Official Journal</a>, <a href="https://doichaangcoffee.co.th/en/about-us/the-legend/" target="_blank" rel="noopener noreferrer">Doi Chaang Coffee</a></p>
+          </div>
+        </article>
+
+        <article class="region region-flip">
+          <figure class="frame reveal" data-reveal="zoom">
+            <img src="assets/img/farmworkers.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Farmworkers in wide-brimmed hats picking ripe coffee cherries by hand, seen from behind among the coffee shrubs">
+          </figure>
+          <div class="region-copy reveal" data-reveal="up" style="--d: 80ms">
+            <h3 class="region-name">Doi Tung</h3>
+            <p class="meta">Mae Fah Luang &amp; Mae Sai districts · 800&ndash;1,200 m</p>
+            <ul>
+              <li>Started in 1988 as part of the Doi Tung Development Project, begun by the Princess Mother and run by the Mae Fah Luang Foundation under Royal Patronage. The goal was to help residents switch from opium poppy to coffee.</li>
+              <li>Arabica (Catimor, Caturra and Catuai hybrids) grown under natural forest shade on the Nang Non mountain range.</li>
+              <li>Cherries are sorted and then processed using the washed method at a facility designated by the Foundation.</li>
+              <li>The project area is home to Akha, Lahu, Shan, Tai Lue, Lua and Yunnanese communities. UNODC recognised the project in 2001.</li>
+            </ul>
+            <p class="src">Sources: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:C:2014:048:0014:0018:EN:PDF" target="_blank" rel="noopener noreferrer">EU Official Journal</a>, <a href="https://pd.jgic.jp/en/register/entry/138.html" target="_blank" rel="noopener noreferrer">Japan GI register</a>, <a href="https://www.doitung.com/en/about/" target="_blank" rel="noopener noreferrer">DoiTung</a></p>
+          </div>
+        </article>
+      </div>
+    </div>
+
+    <div class="origin-dark band-dark">
+      <div class="wrap">
+        <article class="region">
+          <figure class="frame reveal" data-reveal="zoom">
+            <img src="assets/img/hot-cup.webp" width="1080" height="720" loading="lazy" decoding="async" alt="A steaming cup of hot coffee on a warm linen cloth in soft daylight">
+          </figure>
+          <div class="region-copy reveal" data-reveal="up" style="--d: 80ms">
+            <h3 class="region-name">Wawee</h3>
+            <p class="meta">Mae Suai district · 823&ndash;1,204 m</p>
+            <ul>
+              <li>A mountainous subdistrict first settled by Lahu (Muser) and Lisu people. Yao, Karen, Akha and Chin Ho families settled there later.</li>
+              <li>Supported by the Royal Project Foundation and the Highland Research and Development Institute (HRDI). Coffee is one of the area's main crops, alongside tea, lychee and macadamia.</li>
+              <li>Doi Chaang mountain lies within Wawee subdistrict.</li>
+            </ul>
+            <p class="src">Sources: <a href="https://www.hrdi.or.th/en/en-admin/public/images/WhereWeWork/HighlandDevelopmentRoyalProjectAreas/FILE-20240319-0948J1UU8ASR4YPE.pdf" target="_blank" rel="noopener noreferrer">HRDI</a>, <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ%3AC%3A2014%3A049%3A0008%3A0012%3AEN%3APDF" target="_blank" rel="noopener noreferrer">EU Official Journal</a></p>
+          </div>
+        </article>
+
+        <article class="region region-flip">
+          <figure class="frame reveal" data-reveal="zoom">
+            <img src="assets/img/espresso.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Espresso pouring from a portafilter into a small cup on a café espresso machine">
+          </figure>
+          <div class="region-copy reveal" data-reveal="up" style="--d: 80ms">
+            <h3 class="region-name">The hill-tribe farms</h3>
+            <p class="meta">Akha, Lahu, Lisu and other highland communities</p>
+            <ul>
+              <li>Starting in the 1970s, Royal Project crop-replacement schemes introduced coffee, avocado and macadamia to upland communities that had grown opium and practised swidden (rotational) farming.</li>
+              <li>Coffee plantations on Doi Tung cover about 15 km&sup2;. Around 900 families earn a living from them.</li>
+            </ul>
+            <p class="src">Sources: <a href="https://www.tandfonline.com/doi/full/10.1080/14672715.2025.2450476" target="_blank" rel="noopener noreferrer">Critical Asian Studies (2025)</a>, <a href="https://www.channelnewsasia.com/asia/one-addiction-another-thailands-ethnic-minorities-quit-opium-coffee-833166" target="_blank" rel="noopener noreferrer">CNA</a></p>
+          </div>
+        </article>
+
+        <p class="note reveal" data-reveal="fade">Full source list in SOURCES.md. Altitudes are the ranges given in the official geographical-indication specifications (Doi Chaang, Doi Tung) and by HRDI (Wawee).</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="visit band-dark" id="visit" aria-labelledby="visit-heading">
+    <div class="wrap">
+      <div class="visit-card band-cream reveal" data-reveal="up">
+        <div class="visit-copy">
+          <p class="eyebrow">Visit</p>
+          <h2 id="visit-heading" class="section-title">Hours &amp; location</h2>
+          <div class="placeholder">
+            <p><span class="tag">Placeholder</span> Replace with real opening hours.</p>
+            <dl class="hours">
+              <dt>Mon &ndash; Fri</dt><dd>00:00 &ndash; 00:00</dd>
+              <dt>Sat &ndash; Sun</dt><dd>00:00 &ndash; 00:00</dd>
+            </dl>
+          </div>
+          <div class="placeholder">
+            <p><span class="tag">Placeholder</span> Address, Chiang Rai</p>
+            <p class="contact">Phone / LINE: to be added<br>Email: to be added</p>
+          </div>
+          <a class="btn btn-solid visit-cta" href="#menu">See the menu</a>
+        </div>
+        <div class="placeholder map-ph">
+          <p>Placeholder: embed a map here once the address is confirmed.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="site-footer">
+  <div class="wrap">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <a class="brand" href="#top" data-shop-name>[Your Café Name]</a>
+        <p class="footer-annot">Coffee from the hills of northern Thailand</p>
+      </div>
+      <nav aria-label="Explore">
+        <h2 class="col-title">Explore</h2>
+        <ul class="footer-links">
+          <li><a href="#about">About</a></li>
+          <li><a href="#menu">Menu</a></li>
+          <li><a href="#origin">Origin</a></li>
+        </ul>
+      </nav>
+      <nav aria-label="Visit">
+        <h2 class="col-title">Visit</h2>
+        <ul class="footer-links">
+          <li><a href="#visit">Hours &amp; location</a></li>
+          <li><a href="#menu">See the menu</a></li>
+        </ul>
+      </nav>
+    </div>
+    <p class="img-note">Images are illustrative (AI-generated) and do not depict specific farms or people.</p>
+    <p class="footer-copy">&copy; <span id="year"></span> <span data-shop-name>[Your Café Name]</span> · Chiang Rai, Thailand</p>
+  </div>
+</footer>
+
+</body>
+</html>

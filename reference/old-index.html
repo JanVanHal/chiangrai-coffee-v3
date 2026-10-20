@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<!--
+  HOW TO CHANGE THE SHOP NAME
+  The café name is defined in ONE place: the data-shop-name attribute on the <html> tag below.
+  Replace "[Your Café Name]" with the real name and every heading, the nav logo, the footer
+  and the browser tab title update automatically (via the small script at the bottom).
+
+  Other placeholders to replace are marked with the class "placeholder" (dashed outline)
+  and the text "Placeholder". Menu prices are sample prices — adjust before going live.
+  Facts in the Origin section are sourced in SOURCES.md.
+-->
+<html lang="en" data-shop-name="[Your Café Name]">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Coffee shop in Chiang Rai</title>
+<meta name="description" content="A coffee shop in Chiang Rai, Thailand, serving coffee grown in the hills of northern Thailand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<!-- Design system "Intra": Whyte -> Inter 400 (single weight), Thai text -> Noto Sans Thai 400 -->
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400&family=Noto+Sans+Thai:wght@400&display=swap" rel="stylesheet">
+<style>
+  /* Intra design tokens: four colours, one weight, 0px radius, no shadows */
+  :root{
+    --color-paper-white:#ffffff;
+    --color-ink-black:#212529;
+    --color-pure-black:#000000;
+    --color-hairline-gray:#e4e4e4;
+
+    --font-whyte:"Inter","Noto Sans Thai",ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,sans-serif;
+    --font-thai:"Noto Sans Thai","Inter",ui-sans-serif,system-ui,sans-serif;
+
+    --text-body:16px;       --leading-body:1.5;
+    --text-subheading:18px; --leading-subheading:1.5;
+    --text-heading:20px;    --leading-heading:1.5;
+    --text-display:95px;    --leading-display:1;
+
+    --spacing-6:6px; --spacing-10:10px; --spacing-15:15px; --spacing-20:20px;
+    --spacing-40:40px; --spacing-50:50px; --spacing-78:78px; --spacing-100:100px;
+
+    --section-gap:100px;
+    --card-padding:40px;
+    --element-gap:20px;
+    --radius:0px;
+
+    /* responsive values (mobile first) */
+    --gutter:20px;
+    --section-pad:60px;
+    --pad:20px;
+    --display:clamp(52px,13vw,95px);
+  }
+  *,*::before,*::after{box-sizing:border-box;border-radius:0;box-shadow:none}
+  html{scroll-behavior:smooth;overflow-x:hidden}
+  body{margin:0;background:var(--color-paper-white);color:var(--color-ink-black);font-family:var(--font-whyte);font-weight:400;font-size:var(--text-body);line-height:var(--leading-body);-webkit-font-smoothing:antialiased;overflow-wrap:break-word;overflow-x:hidden}
+  ::selection{background:var(--color-ink-black);color:var(--color-paper-white)}
+  img{max-width:100%;display:block;border-radius:0}
+  strong,b,h1,h2,h3,h4,dt,th{font-weight:400}
+  /* Links: underline is the affordance, no hover colour change */
+  a{color:var(--color-ink-black);text-decoration:underline;text-decoration-color:var(--color-pure-black);text-decoration-thickness:1px;text-underline-offset:.2em}
+  a:hover{color:var(--color-ink-black);text-decoration-color:var(--color-pure-black)}
+  :focus-visible{outline:1px solid var(--color-pure-black);outline-offset:3px}
+  .wrap{padding:0 var(--gutter)}
+  section{padding:var(--section-pad) 0;border-top:1px solid var(--color-hairline-gray)}
+  h1,h2,h3{font-weight:400;margin:0 0 var(--element-gap);color:var(--color-ink-black)}
+  /* Display wordmark: one size, line-height 1.0, words never break */
+  h1,h2{font-size:var(--display);line-height:var(--leading-display);letter-spacing:0;overflow-wrap:normal;word-break:normal;hyphens:none;margin-bottom:var(--spacing-40)}
+  h3{font-size:var(--text-heading);line-height:var(--leading-heading)}
+  p{margin:0 0 var(--element-gap)}
+  .eyebrow{display:block;font-size:var(--text-body);line-height:var(--leading-body);margin-bottom:var(--element-gap)}
+  .lead{font-size:var(--text-subheading);line-height:var(--leading-subheading);max-width:52ch}
+  .annot{font:inherit}
+  /* Placeholders keep a dashed outline so editors can spot them */
+  .placeholder{border:1px dashed var(--color-ink-black);padding:var(--pad);background:var(--color-paper-white)}
+  .placeholder p:last-child{margin-bottom:0}
+  /* Tag = outlined bar, same geometry as the button */
+  .tag{display:inline-block;font-size:var(--text-body);line-height:var(--leading-body);border:1px solid var(--color-pure-black);color:var(--color-pure-black);background:transparent;padding:1px var(--spacing-6);margin-right:var(--spacing-10);vertical-align:baseline}
+  .thai,[lang="th"]{font-family:var(--font-thai)}
+  .thai{white-space:nowrap}
+
+  /* NAV: simple top text bar, not sticky */
+  .nav{border-bottom:1px solid var(--color-hairline-gray);position:relative;background:var(--color-paper-white)}
+  .nav .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--element-gap);padding-top:var(--spacing-15);padding-bottom:var(--spacing-15)}
+  .logo{color:var(--color-pure-black);font-size:var(--text-heading);line-height:var(--leading-heading);text-decoration:none}
+  .nav-toggle{font:inherit;font-size:var(--text-body);line-height:var(--leading-body);background:transparent;color:var(--color-pure-black);border:1px solid var(--color-pure-black);padding:1px var(--spacing-6);cursor:pointer}
+  .nav-links{display:none;position:absolute;left:0;right:0;top:100%;z-index:10;background:var(--color-paper-white);border-bottom:1px solid var(--color-hairline-gray);margin:0;padding:0 var(--gutter) var(--spacing-15);list-style:none}
+  .nav-links.open{display:block}
+  .nav-links li{border-top:1px solid var(--color-hairline-gray)}
+  .nav-links a{display:block;padding:var(--spacing-15) 0;font-size:var(--text-subheading)}
+
+  /* HERO */
+  .hero{padding:var(--section-pad) 0}
+  .hero h1{max-width:13ch}
+  .hero .lead{margin-bottom:var(--spacing-40)}
+  .btns{display:flex;flex-wrap:wrap;gap:var(--spacing-15)}
+  /* Outlined action button: 1px black stroke, 6px x 1px padding, no fill, no hover change */
+  .btn{display:inline-block;padding:1px var(--spacing-6);text-decoration:none;font-size:var(--text-subheading);line-height:var(--leading-subheading);border:1px solid var(--color-pure-black);color:var(--color-pure-black);background:transparent}
+  .btn:hover{color:var(--color-pure-black);background:transparent}
+  .hero-facts{margin-top:var(--spacing-50);display:grid;grid-template-columns:1fr;border-top:1px solid var(--color-hairline-gray)}
+  .hero-facts div{padding:var(--spacing-15) 0;border-bottom:1px solid var(--color-hairline-gray)}
+  .hero-facts strong{display:block;font-size:var(--text-heading);line-height:var(--leading-heading)}
+  .hero-facts span{font-size:var(--text-body)}
+
+  /* ORIGIN: flat cards, 1px hairline border */
+  .grid{display:grid;gap:var(--element-gap);grid-template-columns:1fr;margin-top:var(--spacing-50)}
+  .card{background:var(--color-paper-white);border:1px solid var(--color-hairline-gray);padding:var(--pad)}
+  .card h3{margin-bottom:var(--spacing-6)}
+  .card .meta{font-size:var(--text-body);margin-bottom:var(--element-gap)}
+  .card ul{margin:0;padding-left:1.1em}
+  .card li{margin-bottom:var(--spacing-10)}
+  .card li:last-child{margin-bottom:0}
+  .src{font-size:var(--text-body);margin-top:var(--element-gap)!important;padding-top:var(--spacing-15);border-top:1px solid var(--color-hairline-gray)}
+  .note{font-size:var(--text-body);margin-top:var(--spacing-40);max-width:70ch}
+
+  /* MENU: header is the single inverse panel */
+  #menu{padding-top:0}
+  .panel{background:var(--color-ink-black);color:var(--color-paper-white);padding:var(--section-pad) var(--gutter);margin-bottom:var(--spacing-50)}
+  .panel h2,.panel .eyebrow,.panel .lead{color:var(--color-paper-white)}
+  .panel .lead{margin-bottom:0}
+  .menu-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--color-hairline-gray)}
+  .menu-item{display:grid;grid-template-columns:1fr auto;gap:0 var(--element-gap);padding:var(--spacing-15) 0 var(--element-gap);border-bottom:1px solid var(--color-hairline-gray)}
+  .menu-item h3{margin:0;font-size:var(--text-heading);line-height:var(--leading-heading)}
+  .menu-item .th{font-family:var(--font-thai);font-size:var(--text-body);grid-column:1/2}
+  .menu-item p{grid-column:1/-1;margin:var(--spacing-10) 0 0;font-size:var(--text-body);max-width:52ch}
+  .price{grid-row:1/3;grid-column:2/3;text-align:right;font-variant-numeric:tabular-nums;white-space:nowrap;font-size:var(--text-heading);line-height:var(--leading-heading)}
+  .price small{display:block;font-size:var(--text-body)}
+  .legend{font-size:var(--text-body);margin:var(--spacing-40) 0 var(--element-gap)}
+
+  /* ABOUT / VISIT */
+  .two{display:grid;gap:var(--spacing-40);grid-template-columns:1fr}
+  .stack{margin-top:var(--element-gap)}
+  dl.hours{margin:var(--element-gap) 0 0;display:grid;grid-template-columns:auto 1fr;gap:var(--spacing-15) var(--spacing-40);font-variant-numeric:tabular-nums}
+  dl.hours dd{margin:0}
+  .map-ph{border:1px dashed var(--color-ink-black);min-height:240px;display:flex;align-items:center;justify-content:center;font-size:var(--text-body);text-align:center;padding:var(--pad);background:var(--color-paper-white)}
+
+  /* IMAGES: contained, 0px radius, hairline frame, slightly desaturated */
+  .photo{margin:0}
+  .photo img{width:100%;height:auto;object-fit:cover;background:var(--color-hairline-gray);border:1px solid var(--color-hairline-gray);filter:saturate(.8)}
+  .hero-photo{margin-top:var(--spacing-50)}
+  .hero-photo img{aspect-ratio:4/3}
+  .photo-pair{display:grid;gap:var(--element-gap);grid-template-columns:1fr;margin:var(--spacing-40) 0 0}
+  .photo-pair img{aspect-ratio:3/2}
+  .about-photo{margin-top:var(--spacing-40)}
+  .about-photo img{aspect-ratio:4/3}
+
+  footer{border-top:1px solid var(--color-hairline-gray);padding:var(--spacing-40) 0 var(--spacing-50);font-size:var(--text-body);line-height:var(--leading-body)}
+  footer .wrap{display:flex;flex-direction:column;gap:var(--spacing-10)}
+  footer .annot{font-size:var(--text-heading);line-height:var(--leading-heading)}
+  footer .img-note{flex-basis:100%}
+
+  @media (min-width:760px){
+    :root{--gutter:50px;--section-pad:80px;--pad:var(--card-padding)}
+    body{font-size:var(--text-subheading)}
+    .lead{font-size:var(--text-heading);line-height:var(--leading-heading)}
+    .nav-toggle{display:none}
+    .nav-links{display:flex;position:static;padding:0;border:0;gap:var(--spacing-40);background:none}
+    .nav-links li{border:0}
+    .nav-links a{padding:0;font-size:var(--text-subheading)}
+    .nav .wrap{padding-top:var(--element-gap);padding-bottom:var(--element-gap)}
+    .hero-facts{grid-template-columns:repeat(3,1fr);column-gap:var(--spacing-50)}
+    .grid{grid-template-columns:repeat(2,1fr);gap:var(--element-gap)}
+    .two{grid-template-columns:1fr 1fr;gap:var(--spacing-50)}
+    .menu-list{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--spacing-50);border-top:0}
+    .menu-item:nth-child(-n+2){border-top:1px solid var(--color-hairline-gray)}
+    .hero-photo img{aspect-ratio:16/9}
+    .photo-pair{grid-template-columns:1fr 1fr}
+    footer .wrap{flex-direction:row;flex-wrap:wrap;justify-content:space-between;align-items:baseline}
+  }
+  @media (min-width:1100px){
+    :root{--section-pad:var(--spacing-100)}
+  }
+</style>
+</head>
+<body>
+
+<nav class="nav" aria-label="Main">
+  <div class="wrap">
+    <a href="#top" class="logo" data-shop-name>[Your Café Name]</a>
+    <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links" aria-label="Open menu">Sections</button>
+    <ul class="nav-links" id="nav-links">
+      <li><a href="#origin">Origin</a></li>
+      <li><a href="#menu">Menu</a></li>
+      <li><a href="#about">About</a></li>
+      <li><a href="#visit">Visit</a></li>
+    </ul>
+  </div>
+</nav>
+
+<header class="hero" id="top">
+  <div class="wrap">
+    <span class="eyebrow">Coffee house &middot; Chiang Rai, Thailand</span>
+    <h1><span data-shop-name>[Your Café Name]</span> &mdash; <span class="annot">coffee from the hills of Chiang Rai</span></h1>
+    <p class="lead">Espresso, Thai-style iced coffee and slow mornings, made with arabica grown in the mountains of northern Thailand.</p>
+    <div class="btns">
+      <a class="btn btn-primary" href="#menu">See the menu</a>
+      <a class="btn btn-ghost" href="#origin">Where our coffee grows</a>
+    </div>
+    <figure class="photo hero-photo">
+      <img src="images/hero-hills.webp" width="1280" height="720" loading="eager" fetchpriority="high" decoding="async" alt="Forested hills of northern Thailand layered in morning mist at golden hour">
+    </figure>
+    <div class="hero-facts">
+      <div><strong>Arabica</strong><span>grown in Chiang Rai's highlands</span></div>
+      <div><strong>800 &ndash; 1,700 m</strong><span>growing altitudes of Doi Tung and Doi Chaang</span></div>
+      <div><strong>Hot &amp; iced</strong><span>Italian classics and Thai favourites</span></div>
+    </div>
+  </div>
+</header>
+
+<main>
+<section id="origin">
+  <div class="wrap">
+    <span class="eyebrow">Origin</span>
+    <h2>Grown in the mountains of Chiang Rai</h2>
+    <p class="lead">Coffee came to these hills as a replacement crop for opium. Today Chiang Rai is known for highland arabica, much of it grown by Akha, Lahu, Lisu and other hill communities.</p>
+
+    <div class="photo-pair">
+      <figure class="photo"><img src="images/plantation.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Shade-grown arabica coffee shrubs with ripe red cherries on a hillside under tall trees"></figure>
+      <figure class="photo"><img src="images/farmworkers.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Farmworkers in wide-brimmed hats picking ripe coffee cherries by hand, seen from behind among the coffee shrubs"></figure>
+    </div>
+
+    <div class="grid">
+      <article class="card">
+        <h3>Doi Chaang</h3>
+        <div class="meta">Wawee subdistrict, Mae Suai district &middot; 1,100&ndash;1,700 m</div>
+        <ul>
+          <li>Arabica, mainly the Caturra, Catimor and Catuai varieties, grown on the slopes of Doi Chaang mountain.</li>
+          <li>In 1969 hill-tribe farmers here were encouraged to grow winter crops instead of opium under King Bhumibol's (Rama IX) initiative. Arabica was one of those crops.</li>
+          <li>Grown by Akha, Lisu and Chinese families in the village, under the shade of fruit and nut trees such as plum, peach, pear and macadamia.</li>
+          <li>&ldquo;Kafae Doi Chaang&rdquo; is registered as a Protected Geographical Indication (PGI) in the EU (2015).</li>
+        </ul>
+        <p class="src">Sources: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ%3AC%3A2014%3A049%3A0008%3A0012%3AEN%3APDF">EU Official Journal</a>, <a href="https://doichaangcoffee.co.th/en/about-us/the-legend/">Doi Chaang Coffee</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Doi Tung</h3>
+        <div class="meta">Mae Fah Luang &amp; Mae Sai districts &middot; 800&ndash;1,200 m</div>
+        <ul>
+          <li>Started in 1988 as part of the Doi Tung Development Project, begun by the Princess Mother and run by the Mae Fah Luang Foundation under Royal Patronage. The goal was to help residents switch from opium poppy to coffee.</li>
+          <li>Arabica (Catimor, Caturra and Catuai hybrids) grown under natural forest shade on the Nang Non mountain range.</li>
+          <li>Cherries are sorted and then processed using the washed method at a facility designated by the Foundation.</li>
+          <li>The project area is home to Akha, Lahu, Shan, Tai Lue, Lua and Yunnanese communities. UNODC recognised the project in 2001.</li>
+        </ul>
+        <p class="src">Sources: <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ:C:2014:048:0014:0018:EN:PDF">EU Official Journal</a>, <a href="https://pd.jgic.jp/en/register/entry/138.html">Japan GI register</a>, <a href="https://www.doitung.com/en/about/">DoiTung</a></p>
+      </article>
+
+      <article class="card">
+        <h3>Wawee</h3>
+        <div class="meta">Mae Suai district &middot; 823&ndash;1,204 m</div>
+        <ul>
+          <li>A mountainous subdistrict first settled by Lahu (Muser) and Lisu people. Yao, Karen, Akha and Chin Ho families settled there later.</li>
+          <li>Supported by the Royal Project Foundation and the Highland Research and Development Institute (HRDI). Coffee is one of the area's main crops, alongside tea, lychee and macadamia.</li>
+          <li>Doi Chaang mountain lies within Wawee subdistrict.</li>
+        </ul>
+        <p class="src">Sources: <a href="https://www.hrdi.or.th/en/en-admin/public/images/WhereWeWork/HighlandDevelopmentRoyalProjectAreas/FILE-20240319-0948J1UU8ASR4YPE.pdf">HRDI</a>, <a href="https://eur-lex.europa.eu/LexUriServ/LexUriServ.do?uri=OJ%3AC%3A2014%3A049%3A0008%3A0012%3AEN%3APDF">EU Official Journal</a></p>
+      </article>
+
+      <article class="card">
+        <h3>The hill-tribe farms</h3>
+        <div class="meta">Akha, Lahu, Lisu and other highland communities</div>
+        <ul>
+          <li>Starting in the 1970s, Royal Project crop-replacement schemes introduced coffee, avocado and macadamia to upland communities that had grown opium and practised swidden (rotational) farming.</li>
+          <li>Coffee plantations on Doi Tung cover about 15 km&sup2;. Around 900 families earn a living from them.</li>
+        </ul>
+        <p class="src">Sources: <a href="https://www.tandfonline.com/doi/full/10.1080/14672715.2025.2450476">Critical Asian Studies (2025)</a>, <a href="https://www.channelnewsasia.com/asia/one-addiction-another-thailands-ethnic-minorities-quit-opium-coffee-833166">CNA</a></p>
+      </article>
+    </div>
+    <p class="note">Full source list in SOURCES.md. Altitudes are the ranges given in the official geographical-indication specifications (Doi Chaang, Doi Tung) and by HRDI (Wawee).</p>
+  </div>
+</section>
+
+<section id="menu">
+  <div class="panel">
+    <span class="eyebrow">Menu</span>
+    <h2>Coffee</h2>
+    <p class="lead">Ten of the drinks people order most in Thai cafés, from the classic Italian menu to Thai favourites.</p>
+  </div>
+  <div class="wrap">
+    <div class="photo-pair">
+      <figure class="photo"><img src="images/espresso.webp" width="1080" height="720" loading="lazy" decoding="async" alt="Espresso pouring from a portafilter into a small cup on a café espresso machine"></figure>
+      <figure class="photo"><img src="images/hot-cup.webp" width="1080" height="720" loading="lazy" decoding="async" alt="A steaming cup of hot coffee on a warm linen cloth in soft daylight"></figure>
+    </div>
+    <p class="legend">Prices in Thai baht (THB), hot / iced.</p>
+    <ul class="menu-list" id="menu-list"></ul>
+    <p class="note"><span class="tag">Sample</span>These are sample prices based on typical Chiang Rai and Thai café prices. Adjust them before publishing. Ask for <span class="thai">หวานน้อย</span> (waan noi, less sweet) or <span class="thai">ไม่หวาน</span> (mai waan, not sweet).</p>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap two">
+    <div>
+      <span class="eyebrow">About</span>
+      <h2>About <span data-shop-name>[Your Café Name]</span></h2>
+      <figure class="photo about-photo"><img src="images/cafe.webp" width="960" height="720" loading="lazy" decoding="async" alt="A quiet café counter with wooden surfaces and coffee equipment in natural window light"></figure>
+    </div>
+    <div class="placeholder">
+      <p><span class="tag">Placeholder</span></p>
+      <p>Write two or three sentences about the café here: who runs it, when it opened, and what makes it yours.</p>
+      <p>Add a note about where the beans come from (which farm or roaster) once that is confirmed.</p>
+    </div>
+  </div>
+</section>
+
+<section id="visit">
+  <div class="wrap two">
+    <div>
+      <span class="eyebrow">Visit</span>
+      <h2>Hours &amp; location</h2>
+      <div class="placeholder stack">
+        <p><span class="tag">Placeholder</span> Replace with real opening hours.</p>
+        <dl class="hours">
+          <dt>Mon &ndash; Fri</dt><dd>00:00 &ndash; 00:00</dd>
+          <dt>Sat &ndash; Sun</dt><dd>00:00 &ndash; 00:00</dd>
+        </dl>
+      </div>
+      <div class="placeholder stack">
+        <p><span class="tag">Placeholder</span> Address, Chiang Rai</p>
+        <p style="margin:0">Phone / LINE: to be added<br>Email: to be added</p>
+      </div>
+    </div>
+    <div class="map-ph">Placeholder: embed a map here once the address is confirmed.</div>
+  </div>
+</section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>&copy; <span id="year"></span> <span data-shop-name>[Your Café Name]</span> &middot; Chiang Rai, Thailand</span>
+    <span class="annot">Coffee from the hills of northern Thailand</span>
+    <span class="img-note">Images are illustrative (AI-generated) and do not depict specific farms or people.</span>
+  </div>
+</footer>
+
+<script>
+  // Shop name: set once on <html data-shop-name="..."> (see comment at top of file).
+  const SHOP_NAME = document.documentElement.dataset.shopName || "[Your Café Name]";
+  document.querySelectorAll("[data-shop-name]").forEach(el => { if (el !== document.documentElement) el.textContent = SHOP_NAME; });
+  document.title = SHOP_NAME + " | Coffee in Chiang Rai";
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Menu (sample prices in THB; null = not served that way)
+  const MENU = [
+    {en:"Es-yen (Thai-style iced espresso)", th:"เอสเย็น", hot:null, iced:60,
+     d:"Thailand's favourite café drink. Strong espresso with sweetened condensed milk, evaporated milk and fresh milk, served over ice."},
+    {en:"Americano", th:"อเมริกาโน่", hot:45, iced:55,
+     d:"Espresso topped up with water. Iced americano is the go-to black coffee in Thai cafés."},
+    {en:"Latte", th:"ลาเต้", hot:55, iced:65,
+     d:"Espresso with plenty of steamed milk, or with cold milk over ice. Smooth and mild."},
+    {en:"Cappuccino", th:"คาปูชิโน่", hot:55, iced:65,
+     d:"Espresso with steamed milk and a thick layer of foam."},
+    {en:"Mocha", th:"มอคค่า", hot:60, iced:70,
+     d:"Espresso, chocolate and milk."},
+    {en:"Espresso", th:"เอสเพรสโซ่", hot:45, iced:null,
+     d:"A double shot of espresso, pulled from Chiang Rai arabica."},
+    {en:"Thai iced coffee (kafae boran)", th:"กาแฟโบราณ", hot:40, iced:45,
+     d:"Old-style Thai coffee, brewed strong through a cloth filter and sweetened with condensed and evaporated milk."},
+    {en:"Oliang (Thai black iced coffee)", th:"โอเลี้ยง", hot:null, iced:35,
+     d:"Traditional dark-roasted Thai black coffee over ice, with toasty, smoky notes. Lightly sweetened unless you ask for it without."},
+    {en:"Caramel macchiato", th:"คาราเมลมัคคิอาโต", hot:65, iced:75,
+     d:"Milk marked with espresso and finished with caramel sauce."},
+    {en:"Flat white", th:"แฟลตไวท์", hot:60, iced:null,
+     d:"A double espresso with a small amount of velvety steamed milk. Stronger than a latte."}
+  ];
+  const fmt = v => v == null ? "&ndash;" : v;
+  document.getElementById("menu-list").innerHTML = MENU.map(m => `
+    <li class="menu-item">
+      <h3>${m.en}</h3>
+      <span class="th" lang="th">${m.th}</span>
+      <span class="price">${fmt(m.hot)} / ${fmt(m.iced)}<small>THB</small></span>
+      <p>${m.d}</p>
+    </li>`).join("");
+
+  // Mobile nav toggle
+  const toggle = document.querySelector(".nav-toggle"), links = document.getElementById("nav-links");
+  toggle.addEventListener("click", () => {
+    const open = links.classList.toggle("open");
+    toggle.setAttribute("aria-expanded", open);
+    toggle.setAttribute("aria-label", open ? "Close menu" : "Open menu");
+  });
+  links.addEventListener("click", e => { if (e.target.tagName === "A") { links.classList.remove("open"); toggle.setAttribute("aria-expanded", false); } });
+</script>
+</body>
+</html>
